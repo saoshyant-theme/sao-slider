@@ -1,0 +1,188 @@
+
+.sao-custom-slider{display:none; float: left;
+width: 100%;}
+
+ .sao-slider-periveiw{
+	 width: 100%;
+ 
+display: inline-block;
+ }
+.sao-slider-item {
+    float: left;
+    width: 100%;
+    display: inline-block;
+ 	position: relative !important;
+    overflow: hidden;
+}
+.sao-slider-item .sao-thumb{
+	position:absolute;
+	height:100%;
+	width:100%;
+}
+.sao-slider-post{
+	float:left;
+	width:100%;
+	height: 100%;
+	position:relative;
+	display:inline-block;
+}
+.sao-slider-details{
+position: absolute;
+height: 100%;
+width: 100%;
+z-index:1;
+
+pointer-events: none;
+overflow: hidden;
+max-width:1200px;
+left:50%;
+	transform: translateX(-50%);
+   -webkit-transform:translateX(-50%);
+  -moz-transform:translateX(-50%);
+  -o-transform:translateX(-50%);
+  ms-transform:translateX(-50%);
+}
+.sao-slider-perveiw *{box-sizing:border-box;
+}
+.sao-slider-details .sao-element-draggable{
+pointer-events: all;
+}
+
+
+.sao_element_sao_slider  .lSSlideOuter{
+	padding:0px !important;
+}
+.sao-custom-slider.sao-200px .sao-slider-item{height:200px}
+.sao-custom-slider.sao-300px .sao-slider-item{height:300px}
+.sao-custom-slider.sao-400px .sao-slider-item{height:400px}
+.sao-custom-slider.sao-500px .sao-slider-item{height:500px}
+.sao-custom-slider.sao-600px .sao-slider-item{height:600px}
+.sao-custom-slider.sao-700px .sao-slider-item{height:700px}
+.sao-custom-slider.sao-800px .sao-slider-item{height:800px}
+.sao-custom-slider.sao-900px .sao-slider-item{height:900px}
+.sao-custom-slider.sao-1000px .sao-slider-item{height:1000px}
+@media (max-width: 1199px) and (min-width: 992px) {
+.sao-custom-slider.sao-desktop-200px .sao-slider-item{height:200px}
+.sao-custom-slider.sao-desktop-300px .sao-slider-item{height:300px}
+.sao-custom-slider.sao-desktop-400px .sao-slider-item{height:400px}
+.sao-custom-slider.sao-desktop-500px .sao-slider-item{height:500px}
+.sao-custom-slider.sao-desktop-600px .sao-slider-item{height:600px}
+.sao-custom-slider.sao-desktop-700px .sao-slider-item{height:700px}
+.sao-custom-slider.sao-desktop-800px .sao-slider-item{height:800px}
+.sao-custom-slider.sao-desktop-900px .sao-slider-item{height:900px}
+.sao-custom-slider.sao-desktop-1000px .sao-slider-item{height:1000px}
+}
+@media (max-width: 991px) and (min-width: 768px) {
+.sao-custom-slider.sao-tablet-200px .sao-slider-item{height:200px}
+.sao-custom-slider.sao-tablet-300px .sao-slider-item{height:300px}
+.sao-custom-slider.sao-tablet-400px .sao-slider-item{height:400px}
+.sao-custom-slider.sao-tablet-500px .sao-slider-item{height:500px}
+.sao-custom-slider.sao-tablet-600px .sao-slider-item{height:600px}
+.sao-custom-slider.sao-tablet-700px .sao-slider-item{height:700px}
+.sao-custom-slider.sao-tablet-800px .sao-slider-item{height:800px}
+.sao-custom-slider.sao-tablet-900px .sao-slider-item{height:900px}
+.sao-custom-slider.sao-tablet-1000px .sao-slider-item{height:1000px}	
+}
+@media (max-width: 767px) and (min-width: 501px) {
+.sao-custom-slider.sao-phablet-200px .sao-slider-item{height:200px}
+.sao-custom-slider.sao-phablet-300px .sao-slider-item{height:300px}
+.sao-custom-slider.sao-phablet-400px .sao-slider-item{height:400px}
+.sao-custom-slider.sao-phablet-500px .sao-slider-item{height:500px}
+.sao-custom-slider.sao-phablet-600px .sao-slider-item{height:600px}
+.sao-custom-slider.sao-phablet-700px .sao-slider-item{height:700px}
+.sao-custom-slider.sao-phablet-800px .sao-slider-item{height:800px}
+.sao-custom-slider.sao-phablet-900px .sao-slider-item{height:900px}
+.sao-custom-slider.sao-phablet-1000px .sao-slider-item{height:1000px}
+}
+@media (max-width: 500px) {
+.sao-custom-slider.sao-phone-200px .sao-slider-item{height:200px}
+.sao-custom-slider.sao-phone-300px .sao-slider-item{height:300px}
+.sao-custom-slider.sao-phone-400px .sao-slider-item{height:400px}
+.sao-custom-slider.sao-phone-500px .sao-slider-item{height:500px}
+.sao-custom-slider.sao-phone-600px .sao-slider-item{height:600px}
+.sao-custom-slider.sao-phone-700px .sao-slider-item{height:700px}
+.sao-custom-slider.sao-phone-800px .sao-slider-item{height:800px}
+.sao-custom-slider.sao-phone-900px .sao-slider-item{height:900px}
+.sao-custom-slider.sao-phone-1000px .sao-slider-item{height:1000px}
+}
+
+
+ .sao-slider-element-item{ position:absolute;}
+.sao-slider-background-color{
+	position:absolute;
+	width:100%;z-index: 1;
+	left:0px;
+	height:100%;
+ }
+ 
+ .sao-slider-item{float:left; overflow:hidden;position:relative}
+ .sao-slider-details-warp{
+	 top:50% !important;
+	 left:50% !important;
+	 transform:translate(-50%,-50%);
+	 -webkit-transform:translate(-50%,-50%) ;
+	 -moz-transform:translate(-50%,-50%)  ;
+	 -o-transform:translate(-50%,-50%) ;
+	 -ms-transform:translate(-50%,-50%);
+ } 
+   .sao-slider-details-warp{
+	  width:100%;
+	  height:100%;
+	  float:left;
+	  position:relative;
+  }
+.sao-background-transform.sao-slider-item  .sao-post-thumbnail {
+
+  -webkit-transition: all   10000ms ease 0s;
+
+   -moz-transition:all    10000ms ease 0s;
+
+  -ms-transition:  all  10000ms ease 0s;
+
+  -o-transition:all    10000ms ease 0s;
+ 
+ 
+  transition:  all  10000ms ease 0s;
+ float: left;
+
+position: relative;
+
+width: 100%; 
+ height: 100%;
+-ms-transform: scale(1, 1); /* IE 9 */
+    -webkit-transform: scale(1,1); /* Safari */
+    transform: scale(1, 1);
+}
+.sao-background-transform.sao-slider-item.active .sao-post-thumbnail {
+-ms-transform: scale(1.2, 1.2); /* IE 9 */
+    -webkit-transform: scale(1.2, 1.2); /* Safari */
+    transform: scale(1.2, 1.2);
+}
+.sao-slider-text i,.sao_element_slider_button .sao-button-warp .sao-button i{
+	vertical-align:middle;
+    font-family: 'FontAwesome';
+	margin-right: 0.2em;
+	 font-style: inherit;
+}
+.sao-slider-text {
+	float:left;
+}
+.sao-slider-text a{
+	display:inherit;
+}
+ 
+.sao_element_slider_button .sao-button-warp .sao-button{
+	line-height:1em;
+}
+ 
+.sao-slider-text,.sao_element_slider_button .sao-button-warp .sao-button { font-style:normal;}
+.sao-slider-text i:before,.sao_element_slider_button .sao-button-warp .sao-button i:before {
+    font-family: 'FontAwesome';
+ }
+ .sao_element_slider_icon .sao-icon i{
+	 line-height:1em !important;
+ }
+ 
+ .sao-has-link{
+	pointer-events: all;
+ }
