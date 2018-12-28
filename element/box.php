@@ -13,19 +13,43 @@ function sao_slider_box_options( $element ) {
   		'height_unit'	=> 'pexel',	
  		'img'			=>  plugin_dir_url( __DIR__ ).'assets/image/box.jpg'
   	); 
-   
-	  
-	
- 
+     
 	
 	$option[]= array( 
 		"name"			=> esc_html('Background Color','sao'),
  		"id"			=> "background_color",
  		"group"			=>  esc_html('Design','sao'),
-  		"default"		=> "rgba(0,0,0,0.75)",
-		"type"			=> "color_rgba", 
-		
-  	); 	 
+		"type"			=> "multi_options",
+		"options"		=> array(
+			array(
+				"name"		=>  esc_html('First','sao'),
+				"id"		=> "first",
+				"type"		=> "color_rgba",
+			),
+			array(
+				"name"		=>  esc_html('Second','sao'),
+				"id"		=> "second",
+				"type"		=> "color_rgba",
+			),
+			array(
+				"name"		=>  esc_html('Third','sao'),
+				"id"		=> "third",
+				"type"		=> "color_rgba",
+			),	
+			array(
+				"name"		=>  esc_html('Orientation','sao'),
+				"id"		=> "orientation",
+				"type"		=> "select",
+				"options"	=> array(
+					"horizontal"		=>  esc_html('horizontal  →','sao'),
+					"vertical"			=>  esc_html('vertical  ↓','sao'),
+					"diagonal"			=>  esc_html('diagonal  ↘','sao'),
+					"diagonal-bottom"	=>  esc_html('diagonal  ↗','sao'),
+				),
+			),						
+	
+		),
+ 	);		
 	
 	
 $option[]= array( 
@@ -164,7 +188,7 @@ function sao_slider_box_config( $args ) {
  	 
  
 	$box_css='';
-	$box_css.= sao_builder_background_color( $option,'background_color' );
+	$box_css.= sao_slider_gradient_background_color( $option,'background_color' );
 	$box_css.=sao_builder_border( $option,'border');
 	$box_css.=	sao_builder_shadow( $option,'shadow');
 	$box_css.=sao_builder_radius($option,'radius');

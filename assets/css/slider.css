@@ -1,7 +1,12 @@
+
+
 .post-type-sao_slide #sao_builder_metabox{
 	display:block !important;
 	
 }
+
+
+
 .sao_slider_meta .sao_builder_section_item,.sao_slider_meta .sao_builder_column_item{
 	background:none !important;
 	margin:0px;
@@ -34,6 +39,13 @@
 .sao-element-draggable {
 	position:absolute !important;
  	opacity:1;
+}
+
+.sao-slider-perveiw-warp a{
+	pointer-events: none !important;
+}
+.sao-element-draggable{
+	cursor:pointer;
 }
 .sao-element-item.sao-element-draggable-active::after{
 	border:dashed 2px rgba(255,0,0,1.00);
@@ -258,4 +270,7 @@ width: 30px;
 }
 #sao_slider_element{
 	display:none;
+}
+.sao_text_block{
+	font-size:13px;
 }

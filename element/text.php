@@ -7,7 +7,7 @@ function sao_slider_text_options( $element ) {
  	$item = array(
  		'name'			=> 	esc_html('Text','sao'),
  		'id'			=> 'slider_text',
- 		'width_unit'	=> 'percentage',
+ 		'width_unit'	=> 'pexel',
  		'height_unit'	=> 'pexel',
  		'id'			=> 'slider_text',
 		'img'			=>  plugin_dir_url( __DIR__ ).'assets/image/text.jpg'

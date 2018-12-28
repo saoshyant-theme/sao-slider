@@ -19,7 +19,10 @@ function sao_slide_callback(){
 	$background_color_second = !empty($background_color['second'])? $background_color['second']:'';
 	$background_color_third = !empty($background_color['third'])? $background_color['third']:'';
 	$background_color_orientation = !empty($background_color['orientation'])? $background_color['orientation']:'';
-	$max_width = !empty($background_color['max_width'])? $background_color['max_width']:'1200';
+	
+	$sao_max_width = get_post_meta($post->ID, 'sao_max_width', true);
+
+	$max_width = !empty($sao_max_width)? $sao_max_width : '1200';
 	
 	$responsive_array  = array(
 					"auto"				=>	esc_html('Auto','sao'),
@@ -32,6 +35,7 @@ function sao_slide_callback(){
 					"vertical"			=>  esc_html('vertical  ↓','sao'),
 					"diagonal"			=>  esc_html('diagonal  ↘','sao'),
 					"diagonal-bottom"	=>  esc_html('diagonal  ↗','sao'),
+					"radial"	=>  esc_html('radial  ○','sao'),
 				);
 				
 	$width  = array(
@@ -110,22 +114,22 @@ function sao_slide_callback(){
                 <td>
                 	<div class="sao_body_background_color">
                 	<label> <?php echo esc_html__('First','sao');?></label>
-					<input  class="cs-wp-color-picker sao-color sao-background-keyup"  data-rgba="true" type="text" name="sao_background_color[first]" value="<?php echo esc_attr($background_color_first);?>">
+					<input  class="cs-wp-color-picker sao-color sao-background-keyup sao_background_color_first"  data-rgba="true" type="text" name="sao_background_color[first]" value="<?php echo esc_attr($background_color_first);?>">
                     </div>
                     
                 	<div class="sao_body_background_color">
                 	<label> <?php echo esc_html__('Second','sao');?></label>
-					<input  class="cs-wp-color-picker sao-color  sao-background-keyup"  data-rgba="true" type="text" name="sao_background_color[second]" value="<?php echo esc_attr($background_color_second);?>">
+					<input  class="cs-wp-color-picker sao-color  sao-background-keyup sao_background_color_second"  data-rgba="true" type="text" name="sao_background_color[second]" value="<?php echo esc_attr($background_color_second);?>">
                     </div>
                     
                 	<div class="sao_body_background_color">
                 	<label> <?php echo esc_html__('Third','sao');?></label>
-					<input  class="cs-wp-color-picker sao-color  sao-background-keyup"  data-rgba="true" type="text" name="sao_background_color[third]" value="<?php echo esc_attr($background_color_third);?>">
+					<input  class="cs-wp-color-picker sao-color  sao-background-keyup sao_background_color_third"  data-rgba="true" type="text" name="sao_background_color[third]" value="<?php echo esc_attr($background_color_third);?>">
                     </div>
                     
 					<div class="sao_body_background_color">
                 	<label> <?php echo esc_html__('Orientation','sao');?></label>
-                    <select name="sao_background_color[orientation]" class="sao-background-keyup" >
+                    <select name="sao_background_color[orientation]" class="sao-background-keyup sao_background_color_orientation" >
                          	<?php foreach ($orientation as $key => $name){  ?>
                     			<option value="<?php echo esc_attr($key) ?>" <?php  selected( $background_color_orientation, $key )  ?>><?php echo esc_html($name);?></option> 
 							<?php }?>                      

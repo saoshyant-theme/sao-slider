@@ -133,7 +133,7 @@ jQuery(function($) {
 	 
 	 
 	function auto_start_slider(this_element){
-				$(this_element) .stop();
+				$(this_element).stop();
 					
 					var start = $(this_element).find('.sao-slider-effect').attr('data-start');
 					var end = $(this_element).find('.sao-slider-effect').attr('data-end');

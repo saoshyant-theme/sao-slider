@@ -31,35 +31,52 @@ function sao_slider_gradient_background_color( $option,$id ) {
 	if(isset($option[$id]['first'])){
 			$orientation = !empty($option[$id]['orientation'])? $option[$id]['orientation']:'';
 			
-			if($orientation == 'horizontal'){
-				$moz = 'left';
-				$liner = 'to right';
-			}elseif($orientation == 'vertical'){
-				$moz = 'top';
-				$liner = 'to bottom';
-				
-			}elseif($orientation == 'diagonal'){
-				$moz = '-45deg';
-				$liner = '135deg';
-			}else{
-				$moz = '45deg';
-				$liner = '45deg';						
-			}
+			
+				if($orientation == "horizontal"){
+					$type = 'linear';
+					$moz = 'left';
+					$liner = 'to right';
+				}elseif($orientation == "vertical"){
+					$type = 'linear';
+					$moz = 'top';
+					$liner = 'to bottom';
+					
+				}elseif($orientation == "diagonal"){
+					$type = 'linear';
+					$moz = '-45deg';
+					$liner = '135deg';
+				}elseif($orientation == "diagonal"){
+					$type = 'linear';
+					$moz = '-45deg';
+					$liner = '135deg';
+				}elseif($orientation == "diagonal-bottom"){
+					$type = 'linear';
+					$moz = '45deg';
+					$liner = '45deg';
+				}elseif($orientation == "radial"){
+					$type = 'radial';
+					$moz = 'center, ellipse cover';
+					$liner = 'ellipse at center';
+				}else{
+					$type = 'linear';
+					$moz = '45deg';
+					$liner = '45deg';						
+				}
 					
  			$background_color.= 'background-color: '.esc_html($option[$id]['first']).' !important;';
 				
 			if(!empty($option[$id]['second'])){
 				
 				if(!empty($option[$id]['third'])){
-					$background_color.= ' background: -moz-linear-gradient('.$moz.', '.$option[$id]['first'].' 0%,'.$option[$id]['second'].' 50%, '.$option[$id]['third'].' 100%) !important;';
-					$background_color.= ' background: -webkit-linear-gradient('.$moz.', '.$option[$id]['first'].' 0%,'.$option[$id]['second'].' 50%,'.$option[$id]['third'].' 100%) !important; '; 								
-					$background_color.= ' background: linear-gradient('.$liner.', '.$option[$id]['first'].' 0%,'.$option[$id]['second'].' 50%,'.$option[$id]['third'].' 100%) !important;';
+					$background_color.= ' background: -moz-'.$type.'-gradient('.$moz.', '.$option[$id]['first'].' 0%,'.$option[$id]['second'].' 50%, '.$option[$id]['third'].' 100%) !important;';
+					$background_color.= ' background: -webkit-'.$type.'-gradient('.$moz.', '.$option[$id]['first'].' 0%,'.$option[$id]['second'].' 50%,'.$option[$id]['third'].' 100%) !important; '; 								
+					$background_color.= ' background: '.$type.'-gradient('.$liner.', '.$option[$id]['first'].' 0%,'.$option[$id]['second'].' 50%,'.$option[$id]['third'].' 100%) !important;';
 					
 				} else{
 					
-  					$background_color.= ' background: -moz-linear-gradient('.$moz.', '.$option[$id]['first'].' 0%, '.$option[$id]['second'].' 100%) !important;';
-					$background_color.= ' background: -webkit-linear-gradient('.$moz.', '.$option[$id]['first'].' 0%,'.$option[$id]['second'].' 100%) !important; '; 								
-					$background_color.= ' background: linear-gradient('.$liner.', '.$option[$id]['first'].' 0%,'.$option[$id]['second'].' 100%) !important;';
+  					$background_color.= ' background: -moz-'.$type.'-gradient('.$moz.', '.$option[$id]['first'].' 0%, '.$option[$id]['second'].' 100%) !important;';
+					$background_color.= ' background: -'.$type.'-linear-gradient('.$moz.', '.$option[$id]['first'].' 0%,'.$option[$id]['second'].' 100%) !important; '; 								
+					$background_color.= ' background: '.$type.'-gradient('.$liner.', '.$option[$id]['first'].' 0%,'.$option[$id]['second'].' 100%) !important;';
 				}
 				 
 			} 

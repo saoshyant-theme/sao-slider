@@ -224,8 +224,7 @@ function sao_slider_background($post_id) {
  
 add_action('save_post', 'sao_slider_perview_save'); 
 function sao_slider_perview_save($post_id) {
-    if (!isset($_POST['sao_slider_perview_nonce']) || !wp_verify_nonce($_POST['sao_slider_perview_nonce'], basename(__FILE__))) return;
-
+ 
     if (!current_user_can('edit_post', $post_id)) return;
 
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;

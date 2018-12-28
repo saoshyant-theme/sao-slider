@@ -115,6 +115,9 @@ function sao_slider_options( $element ) {
 	 
 	 
 	$height = array(
+		'50'				=>	'50px',
+		'100'				=>	'100px',
+		'150'				=>	'150px',
 		'200'				=>	'200px',
 		'300'				=>	'300px',
 		'400'				=>	'400px',
@@ -149,6 +152,29 @@ function sao_slider_options( $element ) {
 		"type"			=> "multi_options",
  		"options"		=>  sao_multi_array_options('margin'),						
  	);	  
+		
+	$option[]= array( 
+		"name"			=> esc_html('Border Radius','sao'),
+ 		"id"			=> "radius",
+ 		"group"			=>  esc_html('Design','sao'),
+ 		"type"			=> "multi_options",
+		"options"		=>  array( 
+			array( 
+				"name"			=> esc_html('Size','sao'),			
+  				"id"			=> "size",
+				"type"			=> "number",
+ 			),
+ 	 
+			array( 
+ 				"name"			=> 	esc_html('Unit','sao'),
+ 				"id"			=> "unit",
+  				"type"			=> "select",
+				"options"		=>  sao_array_options('unit'),
+ 			),
+		),				
+	 
+	); 			
+		
 			 
  	$item['options']=$option;
 	$element[]=$item;
@@ -255,8 +281,13 @@ function sao_slider_config( $args ) {
 
     $output.='</div>';
  	
-  
+  $item= '.sao-element-'.$key.' ';
+	$border_css='';
+  	$border_css.=  sao_builder_radius_mini($option,'radius'); 
  
+  	$css.= sao_builder_item_css($border_css,$item.' .sao-slider-post');	
+	 
+	
 	$css.=sao_element_padding( $key,$option); 
  	
    	$return['script']= $script;
@@ -317,16 +348,32 @@ function sao_slider_post($option =false,$key = false) {
 				$orientation = !empty($background_color['orientation'])? $background_color['orientation']:'';
 				
 				if($orientation == "horizontal"){
+					$type = 'linear';
 					$moz = 'left';
 					$liner = 'to right';
 				}elseif($orientation == "vertical"){
+					$type = 'linear';
 					$moz = 'top';
 					$liner = 'to bottom';
 					
 				}elseif($orientation == "diagonal"){
+					$type = 'linear';
 					$moz = '-45deg';
 					$liner = '135deg';
+				}elseif($orientation == "diagonal"){
+					$type = 'linear';
+					$moz = '-45deg';
+					$liner = '135deg';
+				}elseif($orientation == "diagonal-bottom"){
+					$type = 'linear';
+					$moz = '45deg';
+					$liner = '45deg';
+				}elseif($orientation == "radial"){
+					$type = 'radial';
+					$moz = 'center, ellipse cover';
+					$liner = 'ellipse at center';
 				}else{
+					$type = 'linear';
 					$moz = '45deg';
 					$liner = '45deg';						
 				}
@@ -336,15 +383,15 @@ function sao_slider_post($option =false,$key = false) {
 				if(!empty($background_color['second'])){
 					
 					if(!empty($background_color['third'])){
-						$bg_color.= ' background: -moz-linear-gradient('.$moz.', '.$background_color['first'].' 0%,'.$background_color['second'].' 50%, '.$background_color['third'].' 100%) !important;';
-						$bg_color.= ' background: -webkit-linear-gradient('.$moz.', '.$background_color['first'].' 0%,'.$background_color['second'].' 50%,'.$background_color['third'].' 100%) !important; '; 								
-						$bg_color.= ' background: linear-gradient('.$liner.', '.$background_color['first'].' 0%,'.$background_color['second'].' 50%,'.$background_color['third'].' 100%) !important;';
+						$bg_color.= ' background: -moz-'.$type.'-gradient('.$moz.', '.$background_color['first'].' 0%,'.$background_color['second'].' 50%, '.$background_color['third'].' 100%) !important;';
+						$bg_color.= ' background: -webkit-'.$type.'-gradient('.$moz.', '.$background_color['first'].' 0%,'.$background_color['second'].' 50%,'.$background_color['third'].' 100%) !important; '; 								
+						$bg_color.= ' background: '.$type.'-gradient('.$liner.', '.$background_color['first'].' 0%,'.$background_color['second'].' 50%,'.$background_color['third'].' 100%) !important;';
 						
 					} else{
 						
-						$bg_color.= ' background: -moz-linear-gradient('.$moz.', '.$background_color['first'].' 0%, '.$background_color['second'].' 100%) !important;';
-						$bg_color.= ' background: -webkit-linear-gradient('.$moz.', '.$background_color['first'].' 0%,'.$background_color['second'].' 100%) !important; '; 								
-						$bg_color.= ' background: linear-gradient('.$liner.', '.$background_color['first'].' 0%,'.$background_color['second'].' 100%) !important;';
+						$bg_color.= ' background: -moz-'.$type.'-gradient('.$moz.', '.$background_color['first'].' 0%, '.$background_color['second'].' 100%) !important;';
+						$bg_color.= ' background: -webkit-'.$type.'-gradient('.$moz.', '.$background_color['first'].' 0%,'.$background_color['second'].' 100%) !important; '; 								
+						$bg_color.= ' background: '.$type.'-gradient('.$liner.', '.$background_color['first'].' 0%,'.$background_color['second'].' 100%) !important;';
 					}
 					 
 				} 
